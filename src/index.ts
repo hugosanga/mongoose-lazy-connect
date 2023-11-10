@@ -1,9 +1,26 @@
 import mongoose from 'mongoose';
 
-let executionPromise: Promise<any>;
+let executionPromise: Promise<any> | null;
+
+const originalQueryExec = mongoose.Query.prototype.exec;
+const originalAggregateExec = mongoose.Aggregate.prototype.exec;
+const originalModelSave = mongoose.Model.prototype.save;
+const originalModelbulkSave = mongoose.Model.bulkSave;
+const originalModelbulkWrite = mongoose.Model.bulkWrite;
+const originalModelcreate = mongoose.Model.create;
+const originalModelcreateCollection = mongoose.Model.createCollection;
+const originalModelensureIndexes = mongoose.Model.ensureIndexes;
+const originalModeldiffIndexes = mongoose.Model.diffIndexes;
+const originalModelinsertMany = mongoose.Model.insertMany;
+const originalModelpopulate = mongoose.Model.populate;
+const originalModelvalidate = mongoose.Model.validate;
 
 async function executeCallback(callback: () => Promise<void>): Promise<void> {
-  if (!executionPromise) executionPromise = callback();
+  if (!executionPromise)
+    executionPromise = (async () => {
+      await callback();
+      executionPromise = null;
+    })();
 
   return executionPromise;
 }
@@ -18,16 +35,16 @@ const connectOnDatabaseDecorator = (originalMethod: any, callback: () => Promise
   };
 
 export function mongooseLazyConnect(callback: () => Promise<void>) {
-  mongoose.Query.prototype.exec = connectOnDatabaseDecorator(mongoose.Query.prototype.exec, callback);
-  mongoose.Aggregate.prototype.exec = connectOnDatabaseDecorator(mongoose.Aggregate.prototype.exec, callback);
-  mongoose.Model.prototype.save = connectOnDatabaseDecorator(mongoose.Model.prototype.save, callback);
-  mongoose.Model.bulkSave = connectOnDatabaseDecorator(mongoose.Model.bulkSave, callback);
-  mongoose.Model.bulkWrite = connectOnDatabaseDecorator(mongoose.Model.bulkWrite, callback);
-  mongoose.Model.create = connectOnDatabaseDecorator(mongoose.Model.create, callback);
-  mongoose.Model.createCollection = connectOnDatabaseDecorator(mongoose.Model.createCollection, callback);
-  mongoose.Model.ensureIndexes = connectOnDatabaseDecorator(mongoose.Model.ensureIndexes, callback);
-  mongoose.Model.diffIndexes = connectOnDatabaseDecorator(mongoose.Model.diffIndexes, callback);
-  mongoose.Model.insertMany = connectOnDatabaseDecorator(mongoose.Model.insertMany, callback);
-  mongoose.Model.populate = connectOnDatabaseDecorator(mongoose.Model.populate, callback);
-  mongoose.Model.validate = connectOnDatabaseDecorator(mongoose.Model.validate, callback);
+  mongoose.Query.prototype.exec = connectOnDatabaseDecorator(originalQueryExec, callback);
+  mongoose.Aggregate.prototype.exec = connectOnDatabaseDecorator(originalAggregateExec, callback);
+  mongoose.Model.prototype.save = connectOnDatabaseDecorator(originalModelSave, callback);
+  mongoose.Model.bulkSave = connectOnDatabaseDecorator(originalModelbulkSave, callback);
+  mongoose.Model.bulkWrite = connectOnDatabaseDecorator(originalModelbulkWrite, callback);
+  mongoose.Model.create = connectOnDatabaseDecorator(originalModelcreate, callback);
+  mongoose.Model.createCollection = connectOnDatabaseDecorator(originalModelcreateCollection, callback);
+  mongoose.Model.ensureIndexes = connectOnDatabaseDecorator(originalModelensureIndexes, callback);
+  mongoose.Model.diffIndexes = connectOnDatabaseDecorator(originalModeldiffIndexes, callback);
+  mongoose.Model.insertMany = connectOnDatabaseDecorator(originalModelinsertMany, callback);
+  mongoose.Model.populate = connectOnDatabaseDecorator(originalModelpopulate, callback);
+  mongoose.Model.validate = connectOnDatabaseDecorator(originalModelvalidate, callback);
 }

@@ -13,3 +13,7 @@ dist/
 .jest-cache
 .backup
 .eslintcache
+
+.vscode
+
+coverage/
