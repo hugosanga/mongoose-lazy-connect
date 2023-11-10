@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "pretty": true,
+    "alwaysStrict": true,
+    "lib": [
+      "es2017"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "target": "es2017",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noErrorTruncation": true,
+    "inlineSources": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src",
+    "test"
+  ]
+}
