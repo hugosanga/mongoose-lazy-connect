@@ -1,6 +1,6 @@
 {
   "name": "mongoose-lazy-connect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Node.js package for lazy connection handling with Mongoose. It allows you to defer the database connection until just before the first query, preventing unnecessary connections when not needed.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
