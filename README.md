@@ -1,6 +1,6 @@
 # mongoose-lazy-connect
 
-[![npm version](https://badge.fury.io/js/mongoose-lazy-connect.svg)](https://www.npmjs.com/package/mongoose-lazy-connect)
+[![npm version](https://badge.fury.io/js/mongoose-lazy-connect.svg)](https://badge.fury.io/js/mongoose-lazy-connect)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <br>
