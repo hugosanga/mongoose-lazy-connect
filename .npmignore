@@ -9,6 +9,6 @@ test
 .prettierrc.js
 tsconfig.build.json
 tsconfig.json
-.vitest.config.ts
+vitest.config.ts
 coverage/
 src/

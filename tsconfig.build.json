@@ -3,7 +3,12 @@
   "exclude": [
     "node_modules",
     "dist",
+    "test",
     "**/*spec.ts",
     "**/*.test.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  }
 }
