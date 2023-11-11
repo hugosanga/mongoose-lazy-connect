@@ -19,8 +19,10 @@
     "test": "vitest"
   },
   "keywords": [
-    "javascript",
-    "mongoose"
+    "nodejs",
+    "mongoose",
+    "mongodb",
+    "backend"
   ],
   "devDependencies": {
     "@types/eslint-plugin-prettier": "^3.1.3",
