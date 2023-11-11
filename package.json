@@ -1,17 +1,27 @@
 {
-  "name": "mongoose-lazyconnect",
+  "name": "mongoose-lazy-connect",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "author": "Hugo Ferraz Sangaletti",
+  "license": "MIT",
+  "homepage": "https://github.com/hugosanga/mongoose-lazy-connect#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hugosanga/mongoose-lazy-connect.git"
+  },
   "scripts": {
-    "prebuild": "rimraf dist",
     "build": "tsc -p ./tsconfig.build.json",
+    "lint": "eslint src",
+    "prebuild": "rimraf dist",
+    "semantic-release": "semantic-release",
     "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "javascript",
+    "mongoose"
+  ],
   "dependencies": {
     "mongoose": "^5.13.21"
   },
@@ -29,6 +39,7 @@
     "eslint-plugin-vitest-globals": "^1.4.0",
     "mongodb-memory-server": "^9.0.1",
     "prettier": "^3.0.3",
+    "semantic-release": "^22.0.7",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
   },

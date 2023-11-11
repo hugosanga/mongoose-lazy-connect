@@ -1,0 +1,13 @@
+.github
+.vscode
+node_modules
+test
+**/__test__/**
+**/*.spec.ts
+.eslintignore
+.eslint.js
+.prettier.js
+.tsconfig.build.json
+.tsconfig.json
+.vitest.config.ts
+coverage/
