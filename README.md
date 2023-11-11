@@ -1,6 +1,6 @@
 # mongoose-lazy-connect
 
-[![npm version](https://badge.fury.io/js/mongoose-lazy-connect.svg)](https://www.npmjs.com/package/mongoose-lazy-connect)
+[![npm version](https://badge.fury.io/js/mongoose-lazy-connect.svg)](https://badge.fury.io/js/mongoose-lazy-connect)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <br>
@@ -29,9 +29,9 @@ const mongoose = require('mongoose');
 const { mongooseLazyConnect } = require('mongoose-lazy-connect');
 
 // Use mongooseLazyConnect to configure the connection
-mongooseLazyConnect(() => {
+mongooseLazyConnect(async () => {
   // Configure your mongoose connection here
-  mongoose.connect('mongodb://localhost:27017/your-database', { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect('mongodb://localhost:27017/your-database', { useNewUrlParser: true, useUnifiedTopology: true });
 });
 
 // Use mongoose models as usual
